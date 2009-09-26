@@ -1,9 +1,10 @@
 @rem ---------------------------------------------------------------------------
 @rem Script used to create help file for System Information Classes.
 @rem
-@rem Copyright (C) Peter Johnson (www.delphidabbler.com), 2008
+@rem Copyright (C) Peter Johnson (www.delphidabbler.com), 2008-2009
 @rem
-@rem v1.0 of 15 Apr 2008 - First version.
+@rem $Rev$
+@rem $Date$
 @rem ---------------------------------------------------------------------------
 
 
