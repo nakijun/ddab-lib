@@ -3,20 +3,12 @@
  *
  * Main form for System Information unit demo program.
  *
- * v1.0 of 30 Jun 2003  - Original version.
- * v2.0 of 13 Nov 2005  - Rewrote to use several tabs to demonstrate component,
- *                        static classes, functions and global variables.
- * v2.1 of 15 Apr 2008  - Removed demo tabs for TPJSysInfo and SIGetXXX
- *                        routines.
- *                      - Removed TPJSysInfo component.
- *                      - Added demo lines for new static class methods and
- *                        global variables added in PJSysInfo v3.0.
- * v2.2 of 13 Apr 2009  - Added demo lines and updated enumeration descriptions
- *                        for new static class methods added in PJSysInfo v3.1.
- *
+ * $Rev$
+ * $Date$
  *
  * This file is copyright (C) P D Johnson (www.delphidabbler.com), 2003-2009.
- * It may be used without restriction,
+ * It may be used without restriction. This code distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
 }
 
 
