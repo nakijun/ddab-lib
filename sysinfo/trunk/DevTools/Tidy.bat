@@ -2,9 +2,10 @@
 @rem Script used to delete System Information Unit's temp, backup files and
 @rem test .dcu and .exe files.
 @rem
-@rem Copyright (C) Peter Johnson (www.delphidabbler.com), 2008
+@rem Copyright (C) Peter Johnson (www.delphidabbler.com), 2008-2009
 @rem
-@rem v1.0 of 15 Apr 2008 - First version.
+@rem $Rev$
+@rem $Date$
 @rem ---------------------------------------------------------------------------
 
 @echo off
@@ -35,6 +36,8 @@ echo.
 echo Deleting *.dsk from "%SrcDir%" and subfolders
 del /S %SrcDir%\*.dsk 
 echo.
+
+if exist %SrcDir%\Releases rmdir /S /Q %SrcDir%\Releases
 
 echo Done.
 
