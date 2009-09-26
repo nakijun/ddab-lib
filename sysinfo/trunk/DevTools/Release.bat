@@ -2,9 +2,10 @@
 @rem Script used to create zip file containing source code of System Information
 @rem Classes.
 @rem
-@rem Copyright (C) Peter Johnson (www.delphidabbler.com), 2008
+@rem Copyright (C) Peter Johnson (www.delphidabbler.com), 2008-2009
 @rem
-@rem v1.0 of 14 Apr 2008 - First version.
+@rem $Rev$
+@rem $Date$
 @rem ---------------------------------------------------------------------------
 
 
@@ -19,6 +20,9 @@ set SrcDir=
 set DocsDir=Docs
 set DemoDir=Demo
 set HelpDir=Help
+
+if exist Releases rmdir /S /Q Releases
+mkdir Releases
 
 if exist %OutFile% del %OutFile%
 
