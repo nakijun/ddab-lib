@@ -1,9 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+ * Read-me file for System Information Unit.
+ *
+ * $Rev$
+ * $Date$
+-->
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <head>
 
 	<title>
-		DelphiDabbler.com Info Sheet: System Information Unit
+		DelphiDabbler System Information Unit ReadMe
 	</title>
 
 	<style type="text/css">
@@ -139,7 +147,7 @@
 
 <h1>
 	<div>System Information Unit</div>
-	<div class="subtitle">Information Sheet</div>
+	<div class="subtitle">ReadMe</div>
 </h1>
 
 
@@ -248,15 +256,14 @@
 </h2>
 
 <p>
-	This unit works with all editions of Delphi from 4 to 2006. It should also
-	work without problems on Delphi 2007, but has not been tested.
+	This unit works with all editions of Delphi from 3 to 2010.
 </p>
 
 <p>
-	As from v3.1 some code has been changed to work correctly with Unicode API
-	calls etc., but whether that's sufficient to work with Delphi 2009 has not
-	been tested. If there's a problem with Delphi 2009, please
-	<a href="http://www.delphidabbler.com/contact">let me know</a>.
+	In v3.1 some code was changed to work correctly with Unicode versions of
+	Delphi (2009 onwards). Version 3.2 added code to work correctly with
+	character sets in either Ansi or Unicode Delphis and extended compatability
+	back to Delphi 3.
 </p>
 
 <p>
@@ -265,7 +272,7 @@
 </p>
 
 <p>
-	The supplied help file is designed to integrate with the Delphi 4 to 7 IDEs.
+	The supplied help file is designed to integrate with the Delphi 3 to 7 IDEs.
 	It will not integrate with later IDEs since the help format has changed. If
 	running on Windows Vista the help file cannot be displayed unless WinHelp is
 	installed. WinHelp is available as an
@@ -287,6 +294,10 @@
 	A demo project is included in the download. The project contains a tab set
 	where each tab displays the information from one of the classes or the
 	global variables. Deprecated code is not demonstrated.
+</p>
+
+<p>
+	The demo code will not compile with Delphi 3 since it uses overload methods.
 </p>
 
 
@@ -319,14 +330,14 @@
 	</li>
 	<li>
 		<code>PJSysInfo.hlp</code> &ndash; Unit help file (integrates
-		with Delphi 4..7 IDE).
+		with Delphi 3..7 IDE).
 	</li>
 	<li>
 		<code>PJSysInfo.als</code> &ndash; &quot;A-keyword&quot; file
 		for integration with Delphi 6 or 7 OpenHelp system.
 	</li>
 	<li>
-		<code>ReadMe.htm</code> &ndash; Information sheet.
+		<code>ReadMe.htm</code> &ndash; This readme file.
 	</li>
 	<li>
 		<code>ChangeLog.txt</code> &ndash; Unit's change log.
@@ -374,11 +385,11 @@
 	<li>
 		For maximum portability you can add the unit to a Delphi design time
 		package. This is the only option if you want to install the deprecated
-		component on your component palette. The methods for Delphi 4 to 7 and
+		component on your component palette. The methods for Delphi 3 to 7 and
 		for Delphi 2005 or later are different and are explained below.
 		<ul class="unspaced">
 			<li class="first">
-				<a href="#d7">Installation with Delphi 4 to 7</a>
+				<a href="#d7">Installation with Delphi 3 to 7</a>
 			</li>
 			<li>
 				<a href="#bds">Installation with Delphi 2005 and later</a>
@@ -395,7 +406,8 @@
 
 <p>
 	Note that <code>$(BDS)</code> represents the path where the appropriate
-	version of the Borland Development System was installed.
+	version of the Borland / CodeGear / Embarcadero Development System was
+	installed.
 </p>
 
 <p>
@@ -410,7 +422,7 @@
 	<li>
 		Decide upon a suitable location into which to install the unit.
 		This may be a subdirectory of your <code>Borland Studio Projects</code>
-		or <code>$(BDS)\lib</code> folders.
+		(or <code>RAD Studio</code>) or <code>$(BDS)\lib</code> folders.
 	</li>
 	
 	<li>
@@ -490,7 +502,7 @@
 
 
 <h3 id="d7">
-	Installation with Delphi 4 to 7
+	Installation with Delphi 3 to 7
 </h3>
 
 <p>
@@ -595,7 +607,7 @@
 
 	<li>
 		The demo program can be loaded into Delphi and compiled and run as
-		required.
+		required. Note that the demo will not compile on Delphi 3.
 	</li>
 
 </ol>
@@ -628,7 +640,9 @@
 	Mozilla Public License Version 1.1 (the &quot;License&quot;). You may not
 	use this Product except in compliance with the License. You may obtain a
 	copy of the License at
-	<a href="http://www.mozilla.org/MPL/">http://www.mozilla.org/MPL/</a>.
+	<a
+		href="http://www.mozilla.org/MPL/MPL-1.1"
+	>http://www.mozilla.org/MPL/MPL-1.1</a>.
 </p>
 
 <p>
@@ -639,10 +653,9 @@
 </p>
 
 <p>
-	The Initial Developer of <em>Console Application Runner Classes</em> is
-	Peter D Johnson. Portions created by the Initial Developer are Copyright
-	&copy; 2001-2009 Peter D Johnson (www.delphidabbler.com). All Rights
-	Reserved.
+	The Initial Developer of <em>System Information Unit</em> is Peter D
+	Johnson. Portions created by the Initial Developer are Copyright &copy;
+	2001-2009 Peter D Johnson (www.delphidabbler.com). All Rights Reserved.
 </p>
 
 <p>
@@ -676,7 +689,7 @@
 <p>
 	I'm Peter Johnson &ndash; a hobbyist programmer living in Ceredigion in West
 	Wales,  UK, writing write mainly in Delphi. My programs and code are
-	available for download from:
+	available from:
 	<a href="http://www.delphidabbler.com/">http://www.delphidabbler.com/</a>.
 </p>
 
@@ -696,7 +709,7 @@
 	</div>
 
 	<div class="copyright">
-		This info sheet is copyright &copy; 2005-2008, P D Johnson,
+		This document is copyright &copy; 2005-2009, P D Johnson,
 		<a href="http://www.delphidabbler.com/">
 		www.delphidabbler.com</a>
 	</div>
