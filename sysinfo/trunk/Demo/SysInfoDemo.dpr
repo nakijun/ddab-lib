@@ -3,12 +3,12 @@
  *
  * Project file for System Information Unit demo program.
  *
- * v1.0 of 30 Jun 2003  - Original version.
- * v1.1 of 15 Apr 2008  - Added PJSysInfo unit to project.
+ * $Rev$
+ * $Date$
  *
- *
- * This file is copyright (C) P D Johnson (www.delphidabbler.com), 2003-2008.
- * It may be used without restriction,
+ * This file is copyright (C) P D Johnson (www.delphidabbler.com), 2003-2009.
+ * It may be used without restriction. This code distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
 }
 
 
@@ -26,3 +26,4 @@ begin
   Application.CreateForm(TDemoForm, DemoForm);
   Application.Run;
 end.
+
