@@ -10,97 +10,8 @@
  * default, but compilation can be enabled by defining the
  * PJSYSINFO_COMPILE_DEPRECATED symbol.
  *
- *
- * v1.0 of 10 Nov 2001    - Original version.
- * v1.1 of 25 Nov 2001    - Added functions and component properties to retrieve
- *                          program files and common files folders.
- * v1.2 of 30 Jun 2003    - Updated palette name to "DelphiDabbler" from "PJ
- *                          Stuff" in register procedure.
- *                        - Added support for Windows 2003 server to OS
- *                          detection functions.
- *                        - Removed requirement for Registry unit by accessing
- *                          registry via Windows API where required.
- *                        - Made TOSVersionInfoEx record definition packed.
- *                        - GetOSProduct, GetOSProductType & GetOSServicePack
- *                          updated according to latest example on MSDN.
- *                        - Used resource strings for exception messages.
- * v2.0 of 13 Nov 2005    - Added new static classes: TPJComputerInfo (provides
- *                          information about the host computer),
- *                          TPJSystemFolders (gets paths to system folders) and
- *                          TPJOSInfo (provides operating system information).
- *                          Together these classes duplicate and extend the
- *                          features of the TPJSysInfo component.
- *                        - Added new features: gettting Windows product ID;
- *                          detection of Windows Vista, XP Media Edition and XP
- *                          Tablet Edition; detection of WOW64 sub-system;
- *                          further operating system detection features.
- *                        - Added new global Win32* variables to provide
- *                          extended operating system version information in
- *                          style of variables from SysUtils unit. These
- *                          variables are intialized at start-up.
- *                        - Re-implemented TPJSysInfo and SIGet* functions in
- *                          terms of new static classes and deleted private
- *                          functions that were no longer required as a result.
- *                        - Flagged TPJSysInfo and the SIGet* functions as
- *                          deprecated - it is now preferred to use the new
- *                          static classes.
- *                        - Moved declaration of TOSVersionInfoEx type and
- *                          VER_NT_* and VER_SUITE_* constants from
- *                          implementation to interface to make publically
- *                          available.
- *                        - Modified way registry is access to use TRegistry
- *                          instead of API calls.
- *                        - Introduced conditional compilation to make compile
- *                          with Delphi 3 to 7.
- * v2.0.1 of 07 Jan 2006  - Fixed bug in TPJOSInfo.ProductName reported by
- *                          Guillermo Fazzolari.
- * v2.1 of 15 Oct 2006    - Added new TPJComputerInfo.MACAddress method.
- * v3.0 of 15 Apr 2008    - All deprecated code, including TPJSysInfo component
- *                          is now not compiled by default. Defining
- *                          PJSYSINFO_COMPILE_DEPRECATED will cause the
- *                          deprecated code to be included.
- *                        - Updated for Windows Vista and Windows 2008 Server
- *                          and extended amount of info available.
- *                        - MakeDirName routine replaced by use of
- *                          ExcludeTrailingBackslash on Delphis that support
- *                          this in SysUtils.
- *                        - Added new HaveWin32ProductInfo and Win32ProductInfo
- *                          global variables.
- *                        - Added new SM_STARTER and SM_SERVERR2
- *                          GetSystemMetrics constants and new VER_SUITE_*
- *                          flags.
- *                        - Added new PRODUCT_* flags provided by Laurent
- *                          Pierre.
- *                        - Added several flags to support GetSystemInfo API.
- *                        - Added method to TPJComputerInfo to provide number of
- *                          processors and their architecture, along with new
- *                          TPJProcessorArchitecture enumeration.
- *                        - Added check for 64 bit processors to
- *                          TPJComputerInfo.
- *                        - Added new methods to TPJOsInfo: IsMediaCenter,
- *                          IsTabletPC and HasPenExtensions.
- *                        - Rewrote TPJOSInfo.Edition method.
- *                        - Added wide string version of TOSVersionInfoEx along
- *                          with pointer types and Windows style types.
- * v3.1 of 13 Apr 2009    - Added further PROCESSOR_ARCHITECTURE_*, PROCESSOR_*
- *                          and PRODUCT_* constants.
- *                        - Made default OS data structures use unicode versions
- *                          when UNICODE is defined in an attempt to make the
- *                          structures compatible with Delphi 2009.
- *                        - Changed to use GetNativeSystemInfo API function to
- *                          get processor architecture if possible.
- *                        - Modified TPJOSInfo to detect Windows 7 and Windows
- *                          2008 Server R2. Also changed a few OS and product
- *                          descriptions.
- *                        - Modified TPJOSInfo.Edition to add 64bit
- *                          qualification to OS edition information for OSs
- *                          running on 64 bit systems and using GetProductInfo
- *                          API.
- *                        - Added BootMode and IsNetworkPresent methods to
- *                          TPJCumputerInfo.
- *                        - Added TPJSystemFolders.SystemWow64 method.
- *                        - Product name of unknown later Windows version now
- *                          contains major and minor version numbers.
+ * $Rev$
+ * $Date$
  *
  *
  * ***** BEGIN LICENSE BLOCK *****
@@ -125,7 +36,7 @@
  *
  * Contributor(s):
  *   Guillermo Fazzolari (bug fix in v2.0.1)
- *   Laurent Pierre (PRODUCT_* constants and suugested GetProductInfo API code
+ *   Laurent Pierre (PRODUCT_* constants and suggested GetProductInfo API code
  *     used in v3.0)
  *
  * ***** END LICENSE BLOCK *****
@@ -138,7 +49,9 @@ unit PJSysInfo;
 // Conditional defines
 
 // NOTE: Deprecated code will not be compiled and no component will be
-// registered unless PJSYSINFO_COMPILE_DEPRECATED is defined before compiling
+// registered unless PJSYSINFO_COMPILE_DEPRECATED is defined before compiling.
+// You can either define in project options or on the command line, or you can
+// remove the '.' character before the '$' in the following line.
 {.$DEFINE PJSYSINFO_COMPILE_DEPRECATED}
 
 // Assume all required facilities available
@@ -147,6 +60,7 @@ unit PJSysInfo;
 {$DEFINE DEPRECATED}        // deprecated directive available
 {$DEFINE EXCLUDETRAILING}   // ExcludeTrailing... SysUtils functions valid
 {$DEFINE MESSAGEDIRS}       // $MESSAGE compiler directives available
+{$DEFINE HASLONGWORD}       // LongWord type defined
 
 // Undefine facilities not available in earlier compilers
 // Note: Delphi 1/2 not included since code will not compile on these compilers
@@ -156,6 +70,7 @@ unit PJSysInfo;
   {$UNDEF DEPRECATED}
   {$UNDEF EXCLUDETRAILING}
   {$UNDEF MESSAGEDIRS}
+  {$UNDEF HASLONGWORD}
 {$ENDIF}
 {$IFDEF VER120} // Delphi 4
   {$UNDEF WARNDIRS}
@@ -278,10 +193,9 @@ const
   VER_SUITE_COMPUTE_SERVER                  = $00004000;
   VER_SUITE_WH_SERVER                       = $00008000;
 
-
   //
-  // These Windows-defined constants are required for use with Vista's
-  // GetProductInfo API call
+  // These Windows-defined constants are required for use with the
+  // GetProductInfo API call (Vista and later)
   // ** Thanks to Laurent Pierre for providing these defintions.
   // ** Additional definitions were obtained from
   //    http://msdn.microsoft.com/en-us/library/ms724358
@@ -294,6 +208,7 @@ const
   PRODUCT_DATACENTER_SERVER_CORE_V          = $00000027;
   PRODUCT_DATACENTER_SERVER_V               = $00000025;
   PRODUCT_ENTERPRISE                        = $00000004;
+  PRODUCT_ENTERPRISE_E                      = $00000046;  // new for 6.1
   PRODUCT_ENTERPRISE_N                      = $0000001B;
   PRODUCT_ENTERPRISE_SERVER                 = $0000000A;
   PRODUCT_ENTERPRISE_SERVER_CORE            = $0000000E;
@@ -301,16 +216,22 @@ const
   PRODUCT_ENTERPRISE_SERVER_IA64            = $0000000F;
   PRODUCT_ENTERPRISE_SERVER_V               = $00000026;
   PRODUCT_HOME_BASIC                        = $00000002;
+  PRODUCT_HOME_BASIC_E                      = $00000043;  // new for 6.1
   PRODUCT_HOME_BASIC_N                      = $00000005;
   PRODUCT_HOME_PREMIUM                      = $00000003;
+  PRODUCT_HOME_PREMIUM_E                    = $00000044;  // new for 6.1
   PRODUCT_HOME_PREMIUM_N                    = $0000001A;
   PRODUCT_HOME_SERVER                       = $00000013;
   PRODUCT_HYPERV                            = $0000002A;
   PRODUCT_MEDIUMBUSINESS_SERVER_MANAGEMENT  = $0000001E;
   PRODUCT_MEDIUMBUSINESS_SERVER_MESSAGING   = $00000020;
   PRODUCT_MEDIUMBUSINESS_SERVER_SECURITY    = $0000001F;
+  PRODUCT_PROFESSIONAL                      = $00000030;  // new for 6.1
+  PRODUCT_PROFESSIONAL_E                    = $00000045;  // new for 6.1
+  PRODUCT_PROFESSIONAL_N                    = $00000031;  // new for 6.1
   PRODUCT_SERVER_FOR_SMALLBUSINESS          = $00000018;
   PRODUCT_SERVER_FOR_SMALLBUSINESS_V        = $00000023;
+  PRODUCT_SERVER_FOUNDATION                 = $00000021;
   PRODUCT_SMALLBUSINESS_SERVER              = $00000009;
   PRODUCT_SMALLBUSINESS_SERVER_PREMIUM      = $00000019;
   PRODUCT_STANDARD_SERVER                   = $00000007;
@@ -318,17 +239,20 @@ const
   PRODUCT_STANDARD_SERVER_CORE_V            = $00000028;
   PRODUCT_STANDARD_SERVER_V                 = $00000024;
   PRODUCT_STARTER                           = $0000000B;
+  PRODUCT_STARTER_E                         = $00000042;  // new for 6.1
+  PRODUCT_STARTER_N                         = $0000002F;  // new for 6.1
   PRODUCT_STORAGE_ENTERPRISE_SERVER         = $00000017;
   PRODUCT_STORAGE_EXPRESS_SERVER            = $00000014;
   PRODUCT_STORAGE_STANDARD_SERVER           = $00000015;
   PRODUCT_STORAGE_WORKGROUP_SERVER          = $00000016;
   PRODUCT_UNDEFINED                         = $00000000;
   PRODUCT_ULTIMATE                          = $00000001;
+  PRODUCT_ULTIMATE_E                        = $00000047;  // new for 6.1
   PRODUCT_ULTIMATE_N                        = $0000001C;
   PRODUCT_WEB_SERVER                        = $00000011;
   PRODUCT_WEB_SERVER_CORE                   = $0000001D;
   PRODUCT_UNLICENSED                        = $ABCDABCD;
-
+  
   //
   // These constants are required for use with GetSystemMetrics to detect
   // certain editions. GetSystemMetrics returns non-zero when passed these flags
@@ -357,7 +281,6 @@ const
   PROCESSOR_ARCHITECTURE_MSIL           = 8; // MSIL architecture
   PROCESSOR_ARCHITECTURE_AMD64          = 9; // x64 (AMD or Intel) *
   PROCESSOR_ARCHITECTURE_IA32_ON_WIN64 = 10; // IA32 on Win64 architecture
-
 
   //
   // These constants are provided in case the obsolete
@@ -724,16 +647,15 @@ type
       }
   public
     constructor Create(AOwner: TComponent); override;
-      {Class constructor. Ensures only one instance of component can be placed on a
-      form.
+      {Class constructor. Ensures only one instance of component can be placed
+      on a form.
         @param AOwner [in] Owning component.
+        @except EPJSysInfo raised if there is already a component present.
       }
-
     property ComputerName: string read GetComputerName;
       {Name of computer}
     property UserName: string read GetUserName;
       {Name of currently logged on user}
-
     property CommonFilesFolder: string read GetCommonFilesFolder;
       {Fully qualified name of common files folder}
     property ProgramFilesFolder: string read GetProgramFilesFolder;
@@ -744,7 +666,6 @@ type
       {Fully qualified name of current temporary folder}
     property WindowsFolder: string read GetWindowsFolder;
       {Fully qualified name of Windows folder}
-
     property OSBuildNumber: Integer read GetOSBuildNumber;
       {Operating system build number}
     property OSDesc: string read GetOSDesc;
@@ -868,6 +789,12 @@ function SIGetOSServicePack: string;
 
 {$ENDIF}
 
+{$IFNDEF HASLONGWORD}
+type
+  // Define LongWord for compilers that don't have it
+  LongWord = Windows.DWORD;
+{$ENDIF}
+
 var
 
   //
@@ -939,7 +866,7 @@ const
   // ** Laurent Pierre supplied original code on which this map is based
   //    It has been modified and extended using MSDN documentation at
   //    http://msdn.microsoft.com/en-us/library/ms724358
-  cProductMap: array[1..42] of record
+  cProductMap: array[1..52] of record
     Id: Cardinal; // product ID
     Name: string; // product name
   end = (
@@ -959,6 +886,8 @@ const
       Name: 'Server Datacenter Edition without Hyper-V (full installation)';),
     (Id: PRODUCT_ENTERPRISE;
       Name: 'Enterprise Edition';),
+    (Id: PRODUCT_ENTERPRISE_E;
+      Name: 'Enterprise E Edition';),
     (Id: PRODUCT_ENTERPRISE_N;
       Name: 'Enterprise N Edition';),
     (Id: PRODUCT_ENTERPRISE_SERVER;
@@ -973,10 +902,14 @@ const
       Name: 'Server Enterprise Edition without Hyper-V (full installation)';),
     (Id: PRODUCT_HOME_BASIC;
       Name: 'Home Basic Edition';),
+    (Id: PRODUCT_HOME_BASIC_E;
+      Name: 'Home Basic E Edition';),
     (Id: PRODUCT_HOME_BASIC_N;
       Name: 'Home Basic N Edition';),
     (Id: PRODUCT_HOME_PREMIUM;
       Name: 'Home Premium Edition';),
+    (Id: PRODUCT_HOME_PREMIUM_E;
+      Name: 'Home Premium E Edition';),
     (Id: PRODUCT_HOME_PREMIUM_N;
       Name: 'Home Premium N Edition';),
     (Id: PRODUCT_HOME_SERVER;
@@ -989,11 +922,19 @@ const
       Name: 'Windows Essential Business Server Messaging Server';),
     (Id: PRODUCT_MEDIUMBUSINESS_SERVER_SECURITY;
       Name: 'Windows Essential Business Server Security Server';),
+    (Id: PRODUCT_PROFESSIONAL;
+      Name: 'Professional Edition';),
+    (Id: PRODUCT_PROFESSIONAL_E;
+      Name: 'Professional E Edition';),
+    (Id: PRODUCT_PROFESSIONAL_N;
+      Name: 'Professional N Edition';),
     (Id: PRODUCT_SERVER_FOR_SMALLBUSINESS;
       Name: 'Server for Small Business Edition';),
     (Id: PRODUCT_SERVER_FOR_SMALLBUSINESS_V;
       Name: 'Windows Server 2008 without Hyper-V for Windows Essential Server '
         + 'Solutions';),
+    (Id: PRODUCT_SERVER_FOUNDATION;
+      Name: 'Server Foundation';),
     (Id: PRODUCT_SMALLBUSINESS_SERVER;
       Name: 'Small Business Server';),
     (Id: PRODUCT_SMALLBUSINESS_SERVER_PREMIUM;
@@ -1008,6 +949,10 @@ const
       Name: 'Server Standard Edition without Hyper-V (full installation)';),
     (Id: PRODUCT_STARTER;
       Name: 'Starter Edition';),
+    (Id: PRODUCT_STARTER_E;
+      Name: 'Starter E Edition';),
+    (Id: PRODUCT_STARTER_N;
+      Name: 'Starter N Edition';),
     (Id: PRODUCT_STORAGE_ENTERPRISE_SERVER;
       Name: 'Storage Server Enterprise Edition';),
     (Id: PRODUCT_STORAGE_EXPRESS_SERVER;
@@ -1020,13 +965,15 @@ const
       Name: 'An unknown product';),
     (Id: PRODUCT_ULTIMATE;
       Name: 'Ultimate Edition';),
+    (Id: PRODUCT_ULTIMATE_E;
+      Name: 'Ultimate E Edition';),
     (Id: PRODUCT_ULTIMATE_N;
-      Name: 'Ultimate Edition';),
+      Name: 'Ultimate N Edition';),
     (Id: PRODUCT_WEB_SERVER;
       Name: 'Web Server Edition';),
     (Id: PRODUCT_WEB_SERVER_CORE;
       Name: 'Web Server Edition (core installation)';),
-    (Id: PRODUCT_UNLICENSED;
+    (Id: Cardinal(PRODUCT_UNLICENSED);
       Name: 'Unlicensed product';)
   );
 
@@ -1039,6 +986,7 @@ var
 // Helper routines
 // -----------------------------------------------------------------------------
 
+{$IFDEF WARNDIRS}{$WARN UNSAFE_TYPE OFF}{$ENDIF}
 function LoadKernelFunc(const FuncName: string): Pointer;
   {Loads a function from the OS kernel.
     @param FuncName [in] Name of required function.
@@ -1047,10 +995,9 @@ function LoadKernelFunc(const FuncName: string): Pointer;
 const
   cKernel = 'kernel32.dll'; // kernel DLL
 begin
-  {$IFDEF WARNDIRS}{$WARN UNSAFE_TYPE OFF}{$ENDIF}
   Result := GetProcAddress(GetModuleHandle(cKernel), PChar(FuncName));
-  {$IFDEF WARNDIRS}{$WARN UNSAFE_TYPE ON}{$ENDIF}
 end;
+{$IFDEF WARNDIRS}{$WARN UNSAFE_TYPE ON}{$ENDIF}
 
 procedure InitPlatformIdEx;
   {Initialise global variables with extended OS version information if possible.
@@ -1098,7 +1045,7 @@ begin
         Win32ServicePackMajor, Win32ServicePackMinor,
         Win32ProductInfo
       ) then
-        Win32ProductInfo := 0;
+        Win32ProductInfo := PRODUCT_UNDEFINED;
     end;
   end;
   // Get processor architecture
@@ -1194,9 +1141,7 @@ const
   cWdwCurrentVer = '\Software\Microsoft\Windows\CurrentVersion';
 begin
   Result := GetRegistryString(
-    Windows.HKEY_LOCAL_MACHINE,
-    cWdwCurrentVer,
-    ValName
+    Windows.HKEY_LOCAL_MACHINE, cWdwCurrentVer, ValName
   );
 end;
 
@@ -1347,6 +1292,7 @@ constructor TPJSysInfo.Create(AOwner: TComponent);
   {Class constructor. Ensures only one instance of component can be placed on a
   form.
     @param AOwner [in] Owning component.
+    @except EPJSysInfo raised if there is already a component present.
   }
 var
   Idx: Integer; // loops thru components on Owner form
@@ -1354,7 +1300,7 @@ begin
   // Ensure that component is unique
   for Idx := 0 to Pred(AOwner.ComponentCount) do
     if AOwner.Components[Idx] is ClassType then
-      raise Exception.CreateFmt(
+      raise EPJSysInfo.CreateFmt(
         sDupInstErr,
         [ClassName, AOwner.Components[Idx].Name, AOwner.Name]
       );
@@ -2026,10 +1972,18 @@ begin
       begin
         case Product of
           osWin95:
-            if UpCase(Win32CSDVersion[1]) in ['B', 'C'] then
+            {$IFDEF UNICODE}
+            if CharInSet(Win32CSDVersion[1], ['B', 'b', 'C', 'c']) then
+            {$ELSE}
+            if Win32CSDVersion[1] in ['B', 'b', 'C', 'c'] then
+            {$ENDIF}
               Result := 'OSR2';
           osWin98:
-            if UpCase(Win32CSDVersion[1]) = 'A' then
+            {$IFDEF UNICODE}
+            if CharInSet(Win32CSDVersion[1], ['A', 'a']) then
+            {$ELSE}
+            if Win32CSDVersion[1] in ['A', 'a'] then
+            {$ENDIF}
               Result := 'SE';
         end;
       end;
