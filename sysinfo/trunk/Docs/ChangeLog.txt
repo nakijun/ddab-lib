@@ -1,3 +1,11 @@
+Release 3.2 of 27 September 2009
++ Added some further PRODUCT_* constants that are new for Windows 7 / 2008 Server R2.
++ Changed character set handling to take account of Unicode and non-Unicode compilers.
++ Unit, but not demo, can now be compiled on Delphi 3.
++ Removed compiler warnings in Delphi 7.
++ All exceptions raised are now of type EPJsysInfo.
++ Updated documentation.
+
 Release 3.1 of 13 April 2009
 + Updated help file re revised static classes.
 + Revised demo program by adding output for new methods.
