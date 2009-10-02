@@ -1,0 +1,52 @@
+;## @FILE                       PJWdwState.hpj
+;## @COMMENTS                   Help project file of Windows State components.
+;## @PROJECT_NAME               Window State Components
+;## @PROJECT_DESC               Two components that save state of a window
+;##                             between executions - one in ini file and the
+;##                             other in registry.
+;## @OTHER_NAMES                + Original file name was WdwState.hpj
+;##                             + Changed to PJWdwState.hpj at v2.0
+;## @HISTORY(
+;##   @REVISION(
+;##     @VERSION                1.0
+;##     @DATE                   15/08/1999
+;##     @COMMENTS               Original version.
+;##   )
+;##   @REVISION(
+;##     @VERSION                2.0
+;##     @DATE                   17/03/2002
+;##     @COMMENTS               Rewrote for new OpenHelp compatible help file
+;##                             used with release 4 of component.
+;##   )
+;##   @REVISION(
+;##     @VERSION                2.1
+;##     @DATE                   30/10/2003
+;##     @COMMENTS               Updated window title and copyright message.
+;##   )
+;##   @REVISION(
+;##     @VERSION                2.2
+;##     @DATE                   04/09/2005
+;##     @COMMENTS               Updated copyright date to include 2005.
+;##   )
+;##   @REVISION(
+;##     @VERSION                2.3
+;##     @DATE                   15/12/2006
+;##     @COMMENTS               Updated copyright date to include 2006.
+;##   )
+;##   @REVISION(
+;##     @VERSION                2.4
+;##     @DATE                   28/01/2007
+;##     @COMMENTS               Updated copyright date to include 2007.
+;##   )
+;## )
+
+
+[OPTIONS]
+LCID=0x809 0x0 0x0 ; English (United Kingdom)
+REPORT=Yes
+TITLE=DelphiDabbler Window State Components Help
+COPYRIGHT=DelphiDabbler Window State Components Copyright © P D Johnson 1999-2007
+HLP=PJWdwState.hlp
+
+[FILES]
+PJWdwState.rtf
