@@ -1,0 +1,518 @@
+@PROJECT_NAME           Window State Components
+@PROJECT_DESC           Two components that save state of a window between
+                        executions - one in ini file and the other in registry.
+@ROOT                   ..\
+@AUTHOR                 Peter D Johnson, LLANARTH, Ceredigion, Wales, UK.
+@OWNER                  delphiDabbler
+@EMAIL                  peter.johnson@openlink.org
+@WEBSITE                http://www.delphidabbler.com/
+@COPYRIGHT              © Peter D Johnson, 1999-2005.
+@LEGAL_NOTICE           These components and source code are distributed under
+                        the Mozilla Public License - see PJWdwState.pas for
+                        details of the license.
+@HISTORY(
+  @REVISION(
+    @VERSION            1.0
+    @DATE               15/08/1999
+    @COMMENTS           Original version containing single TPJWdwState component
+                        that stored window state information in ini files.
+    @COMPILERS          + Microsoft HC31 Help Compiler
+    @FILES(
+      @NEW(
+        @FILE           WdwState.pas
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           16\WdwState.dcr
+        @DATE           15/08/1999
+        @COMMENTS       16bit resource containing component glyph.
+      )
+      @NEW(
+        @FILE           32\WdwState.dcr
+        @DATE           15/08/1999
+        @COMMENTS       32bit resource containing component glyph.
+      )
+      @NEW(
+        @FILE           Help\WdwState.hpj
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Help\WdwState.hta
+        @DATE           15/08/1999
+        @COMMENTS       Help Topic Author file for TPJWdwState component help.
+      )
+      @NEW(
+        @FILE           Help\WdwState.kwf
+        @DATE           15/08/1999
+        @COMMENTS       Keyword file to integrate TPJWdwState help into Delphi
+                        1/2.
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            2.0
+    @DATE               19/10/1999
+    @COMMENTS           Re-write which added TPJRegWdwState component that
+                        stores window state information in registry.
+    @COMPILERS          + Help Topic Author
+                        + Microsoft HC31 Help Compiler
+    @FILES(
+      @UPDATED(
+        @FILE           WdwState.pas
+        @VERSION        2.0
+      )
+      @UPDATED(
+        @FILE           32\WdwState.dcr
+        @DATE           18/10/1999
+        @COMMENTS       Added new glyph for new TPJRegWdwState component.
+      )
+      @UPDATED(
+        @FILE           Help\WdwState.hta
+        @DATE           19/10/1999
+        @COMMENTS       Udpated help topics for new version.
+      )
+      @UPDATED(
+        @FILE           Help\WdwState.kwf
+        @DATE           19/10/1999
+        @COMMENTS       Regenerated for revised help file.
+      )
+      @NEW(
+        @FILE           Help\WdwStatR.hpj
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Help\WdwStatR.hta
+        @DATE           19/10/1999
+        @COMMENTS       Help Topic Author file for TPJRegWdwState component
+                        help.
+      )
+      @NEW(
+        @FILE           Help\WdwStatR.kwf
+        @DATE           19/10/1999
+        @COMMENTS       Keyword file to integrate help into Delphi 1/2.
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            2.1
+    @DATE               29/11/1999
+    @COMMENTS           Renamed ReadState and SaveState methods to ReadWdwState
+                        and SaveWdwState respectively since ReadState was
+                        masking a method inherited from TComponent.
+    @COMPILERS          + Help Topic Author
+                        + Microsoft HC31 Help Compiler
+    @FILES(
+      @UPDATED(
+        @FILE           WdwState.pas
+        @VERSION        2.1
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            3.0
+    @DATE               05/04/2000
+    @COMMENTS           New version that is not compatible with Delphi 1.
+                        + Added AutoSaveRestore property.
+                        + Modified window restoration code to avoid task bars in
+                          positions other than bottom of screen.
+                        + Prevented forms being restored as minimized from
+                          flashing on screen.
+    @COMPILERS          + Help Topic Author
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @REMOVED          16\WdwState.dcr
+      @UPDATED(
+        @FILE           WdwState.pas
+        @VERSION        3.0
+      )
+      @UPDATED(
+        @FILE           Help\WdwState.hta
+        @DATE           05/04/2000
+        @COMMENTS       Updated with info about new property.
+      )
+      @UPDATED(
+        @FILE           Help\WdwStatR.hta
+        @DATE           05/04/2000
+        @COMMENTS       Updated with info about new property.
+      )
+      @UPDATED(
+        @FILE           Help\WdwState.kwf
+        @DATE           05/04/2000
+        @COMMENTS       Regenerated for revised help file.
+      )
+      @UPDATED(
+        @FILE           Help\WdwStatR.kwf
+        @DATE           05/04/2000
+        @COMMENTS       Regenerated for revised help file.
+      )
+      @UPDATED(
+        @FILE           WdwState.dcr
+        @DATE           18/10/1999
+        @COMMENTS       Not updated - simply moved
+        @RENAMED_FROM   32\WdwState.dcr
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            3.1
+    @DATE               29/04/2000
+    @COMMENTS           Bug fix curing problem of incorrect maximisation.
+    @COMPILERS          + Help Topic Author
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           WdwState.pas
+        @VERSION        3.1
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            4.0
+    @DATE               17/03/2002
+    @COMMENTS           + Made use ParamStr(0) for default name of ini file and
+                          registry key.
+                        + Changed name of default registry sub key and ini file
+                          section to enable use of multiple forms without
+                          overwriting each other's data when using default
+                          property values.
+                        + Rewrote method of auto saving and restoring windows to
+                          stop having to manipulate the owning form's OnCreate
+                          and OnDestroy event handlers. Now uses a hook class to
+                          hook into owning form's messages and pass them to
+                          window state components. The window now always
+                          momentarily appears in normal state before being
+                          maximized or minimized as required.
+                        + Added new MinimizeDelay property to control how long
+                          the normal window appears before being minimized.
+                        + Added OnGetIniData event to TPJWdwState and
+                          OnGetRegData event to TPJRegWdwState to allow user to
+                          override property values for reading / writing ini
+                          file and registry.
+                        + Made so that now only one instance of a window state
+                          component can be placed on a form.
+                        + Rationalised some elements of code.
+                        + Changed component palette from 'PJ Stuff' to 'PJSoft'.
+                        + Changed unit name to PJWdwState.
+                        + Rewrote help file to integrate into Delphi 3+ IDE,
+                          removing support for Delphi 2 IDE.
+    @COMPILERS          + Help Topic Author 1.12.2
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @REMOVED          Help\WdwState.kwf
+      @REMOVED          Help\WdwStatR.hta
+      @REMOVED          Help\WdwStatR.kwf
+      @REMOVED          Help\WdwStatR.hpj
+      @UPDATED(
+        @FILE           PJWdwState.pas
+        @VERSION        4.0
+        @RENAMED_FROM   WdwState.pas
+      )
+      @UPDATED(
+        @FILE           PJWdwState.dcr
+        @DATE           18/10/1999
+        @COMMENTS       Not updated - simply renamed.
+        @RENAMED_FROM   WdwState.dcr
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.hap
+        @DATE           17/03/2002
+        @COMMENTS       Rewrote help file to integrate with Delphi 3+ IDEs.
+                        Added help topics for TPJRegWdwState and
+                        TPJCustomWdwState to topics for TPJWdwState.
+        @RENAMED_FROM   Help\WdwState.hta
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.hpj
+        @VERSION        2.0
+        @RENAMED_FROM   Help\WdwState.hpj
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            4.1
+    @DATE               07/08/2002
+    @COMMENTS           + Added new OnReadWdwState event in which user can
+                          override window placement, size and state read from
+                          registry or ini file.
+                        + Added new Options property which contains a set of
+                          values that govern the behavoiur of the component. The
+                          options are to ignore the stored window state and
+                          ensure window is displayed normally or ignore the
+                          stored window size and use the form's size as
+                          designed.
+    @COMPILERS          + Help Topic Author
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJWdwState.pas
+        @VERSION        4.1
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.hap
+        @DATE           07/08/2002
+        @COMMENTS       Added topics for new OnReadWdwState event and Options
+                        property.
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            4.2
+    @DATE               30/10/2003
+    @COMPILERS          + Help Topic Author 1.13
+                        + Microsoft Help Workshop 4
+    @COMMENTS           + Added new woFitWorkArea option to ensure window is not
+                          displayed out of current work area. Help file updated
+                          with details of this new option.
+                        + When TPJRegWdwState reads/writes the registry we now
+                          check that the required key can be opened before
+                          reading/writing. Reading no longer creates missing
+                          keys.
+                        + Rearranged decision logic in
+                          TPJCustomWdwState.SetParentComponent method.
+                        + Changed component palette to 'DelphiDabbler' from
+                          'PJSoft'.
+    @FILES(
+      @UPDATED(
+        @FILE           PJWdwState.pas
+        @VERSION        4.2
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.hap
+        @DATE           30/10/2003
+        @COMMENTS       + Updated Option property topic with details of new
+                          option to restore window within desktop workspace.
+                        + Revised some topics and corrected some errors.
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.hpj
+        @VERSION        2.1
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            4.3
+    @DATE               04/09/2005
+    @COMMENTS           + Added new CreateStandAlone constructor for use when
+                          creating components at run time.
+                        + Added new demo applications.
+    @COMPILERS          + Help Topic Author 1.16
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJWdwState.pas
+        @VERSION        4.3
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.hap
+        @DATE           04/09/2005
+        @COMMENTS       Added TPJCustomWdwState.CreateStandAlone topic.
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.hpj
+        @VERSION        2.2
+      )
+      @NEW(
+        @FILE           Demos\1\StandardDemo.dpr
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demos\1\FmDemo.pas
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demos\1\FmDemoDlg.pas
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demos\2\StandAloneDemo.dpr
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demos\2\FmMain.pas
+        @VERSION        1.0
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            4.3.1
+    @DATE               18/12/2005
+    @COMMENTS           + Fixed compiler directive error causing program to fail
+                          to compile in Delphis below v7.
+                        + Added new a-link keyword file.
+                        + Removed from demo applications some form properties
+                          and unit clauses not available in earlier versions of
+                          Delphi.
+    @COMPILERS          + Help Topic Author 1.16
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJWdwState.pas
+        @VERSION        4.4
+      )
+      @NEW(
+        @FILE           Help\PJWdwState.als
+        @DATE           16/12/2005
+        @COMMENTS       New a-link keyword file.
+      )
+      @UPDATED(
+        @FILE           Demos\1\FmDemo.pas
+        @VERSION        1.1
+      )
+      @UPDATED(
+        @FILE           Demos\1\FmDemoDlg.pas
+        @VERSION        1.1
+      )
+      @UPDATED(
+        @FILE           Demos\2\FmMain.pas
+        @VERSION        1.1
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            5.0
+    @DATE               15/10/2006
+    @COMMENTS           + Added new TPJUserWdwState component that gets user to
+                          provide implementation of reading and writing
+                          persistent storage by handling events.
+                        + Changed TPJCustomWdwState.OnReadWdwState to protected
+                          and exposed in TPJWdwState and TPJRegWdwState. This is
+                          not used in TPJUserWdwState.
+                        + Updated help files re new TPJUserWdwState component.
+                        + Added new demo illustrating use of TPJUserWdwState.
+    @COMPILERS          + Help Topic Author 1.16
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJWdwState.pas
+        @VERSION        5.0
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.als
+        @DATE           15/10/2006
+        @COMMENTS       Updated re new topics and keywords in help file.
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.hap
+        @DATE           15/10/2006
+        @COMMENTS       + Added new topics re new TPJUserWdwState component.
+                        + Updated existing topics re new component.
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.hpj
+        @VERSION        2.3
+      )
+      @NEW(
+        @FILE           Demos\3\UserDemo.dpr
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demos\3\FmUserDemo.pas
+        @VERSION        1.0
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            5.1
+    @DATE               28/01/2007
+    @COMMENTS           Merged in changes provided by Bruce J Miller.
+                        + Added events to enable user defined data to be read
+                          from or written to registry when TPJRegWdwState writes
+                          or reads window state information.
+                        + Enabled components to work with MDI child forms.
+    @COMPILERS          + Help Topic Author 1.16
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJWdwState.pas
+        @VERSION        5.1
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.als
+        @DATE           28/01/2007
+        @COMMENTS       Updated re new keywords in help file.
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.hap
+        @DATE           28/01/2007
+        @COMMENTS       + Added new topics re new TPJRegWdwState
+                          OnGettingRegData and OnPuttingRegData events.
+                        + Updated existing topics re new events.
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.hpj
+        @VERSION        2.4
+      )
+      @UPDATED(
+        @FILE           Demos\1\FmDemo.pas
+        @VERSION        1.2
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            5.2
+    @DATE               19/09/2007
+    @COMMENTS           + Added support for multiple monitors based on code
+                          suggested by Craig Symons.
+                        + Deleted unused defines.
+    @COMPILERS          + Help Topic Author 1.16
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJWdwState.pas
+        @VERSION        5.2
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.hap
+        @DATE           19/09/2007
+        @COMMENTS       Added notes that component now recognises multiple
+                        monitors to relevant topics.
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.als
+        @DATE           19/09/2007
+        @COMMENTS       Regenerated following changes to help file.
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            5.3
+    @DATE               27/09/2007
+    @COMMENTS           + Completely re-implemented code that supports fitting
+                          MDI child form in parent client workspace. Original
+                          code was broken.
+                        + Bug fix in multi-monitor code by Craig Symons.
+                        + Pause before minimization of form now uses a busy wait
+                          rather than call to Sleep.
+    @COMPILERS          + Help Topic Author 1.16
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJWdwState.pas
+        @VERSION        5.3
+      )
+      @NEW(
+        @FILE           MDIDemo.dpr
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           FmMDIChild.pas
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           FmMDIMain.pas
+        @VERSION        1.0
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.hap
+        @DATE           27/09/2007
+        @COMMENTS       Modified various topics adding information about use
+                        with MDI child forms.
+      )
+      @UPDATED(
+        @FILE           Help\PJWdwState.als
+        @DATE           27/09/2007
+        @COMMENTS       Regenerated following changes to help file.
+      )
+    )
+  )
+)
