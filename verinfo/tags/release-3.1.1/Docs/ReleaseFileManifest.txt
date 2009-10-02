@@ -1,0 +1,123 @@
+Version Information Component
+=============================
+
+Release File Manifest
+---------------------
+
+Release 1.0.1a
+--------------
+
+verinfo.pas         : component source file
+verinfo.dcr         : 16bit resource file for component palette glyph
+verinfo.hlp         : help file (for Delphi 1/2)
+verinfo.kwf         : help keyword file (for Delphi 1/2)
+vinfo16.htm         : information sheet
+readme.txt          : readme file pointing user to vinfo16.htm for info
+
+Release 1.0.2
+-------------
+
+verinfo.pas         : component source file
+verinfo.dcr         : 16bit resource file for component palette glyph
+verinfo.hlp         : help file (for Delphi 1/2)
+verinfo.kwf         : help keyword file (for Delphi 1/2)
+pjvinf16.htm        : information sheet
+
+Release 2.1
+-----------
+
+vinfo.pas           : component source file
+vinfo.dcr           : 32bit resource file for component palette glyph
+verinfo.hlp         : help file (for Delphi 1/2)
+verinfo.kwf         : help keyword file (for Delphi 1/2)
+vinfo32.htm         : information sheet
+readme.txt          : readme file pointing user to vinfo32.htm for info
+
+Release 3.0
+-----------
+
+PJVersionInfo.pas   : component source file
+PJVersionInfo.dcr   : 32bit resource file for component palette glyph
+PJVersionInfo.hlp   : help file (for Delphi 3+)
+PJVersionInfo.htm   : information sheet
+Demo\PJSoft.ico     : icon used by both demo applications
+Demo\1\VIDemo.dpr   : project file for demo application
+Demo\1\VIDemo.res   : resource file containing demo app icon
+Demo\1\VIDemo.cfg   : config file for compiling demo app
+Demo\1\FmVIDemo.pas : demo main form unit
+Demo\1\FmVIDemo.dfm : demo main form file
+Demo\2\HelpEgs.dpr  : project file for help examples application
+Demo\2\HelpEgs.res  : resource file containing help example app icon
+Demo\2\HelpEgs.cfg  : config file for compiling demo app
+Demo\2\FmMain.pas   : help example main form unit
+Demo\2\FmMain.dfm   : help example main form file
+Demo\2\FmEg1.pas    : form unit for help example 1
+Demo\2\FmEg1.dfm    : form file for help example 1
+Demo\2\FmEg2.pas    : form unit for help example 2
+Demo\2\FmEg2.dfm    : form file for help example 2
+Demo\2\FmEg3.pas    : form unit for help example 3
+Demo\2\FmEg3.dfm    : form file for help example 3
+Demo\2\FmEg4.pas    : form unit for help example 4
+Demo\2\FmEg4.dfm    : form file for help example 4
+Demo\2\MultiVer.rc  : version info resource source file containing two translations
+Demo\2\MultiVer.res : version info resource binary file containing two translations
+
+Release 3.0.1 and 3.1
+---------------------
+
+PJVersionInfo.pas   : component source file
+PJVersionInfo.dcr   : 32bit resource file for component palette glyph
+PJVersionInfo.hlp   : help file (for Delphi 3+)
+pjvinf32.htm        : information sheet
+Demo\PJSoft.ico     : icon used by both demo applications
+Demo\1\VIDemo.dpr   : project file for demo application
+Demo\1\VIDemo.res   : resource file containing demo app icon
+Demo\1\VIDemo.cfg   : config file for compiling demo app
+Demo\1\FmVIDemo.pas : demo main form unit
+Demo\1\FmVIDemo.dfm : demo main form file
+Demo\2\HelpEgs.dpr  : project file for help examples application
+Demo\2\HelpEgs.res  : resource file containing help example app icon
+Demo\2\HelpEgs.cfg  : config file for compiling demo app
+Demo\2\FmMain.pas   : help example main form unit
+Demo\2\FmMain.dfm   : help example main form file
+Demo\2\FmEg1.pas    : form unit for help example 1
+Demo\2\FmEg1.dfm    : form file for help example 1
+Demo\2\FmEg2.pas    : form unit for help example 2
+Demo\2\FmEg2.dfm    : form file for help example 2
+Demo\2\FmEg3.pas    : form unit for help example 3
+Demo\2\FmEg3.dfm    : form file for help example 3
+Demo\2\FmEg4.pas    : form unit for help example 4
+Demo\2\FmEg4.dfm    : form file for help example 4
+Demo\2\MultiVer.rc  : version info resource source file containing two translations
+Demo\2\MultiVer.res : version info resource binary file containing two translations
+
+Release 3.1.1
+-------------
+
+PJVersionInfo.pas   : component source file
+PJVersionInfo.dcr   : 32bit resource file for component palette glyph
+PJVersionInfo.hlp   : help file (for Delphi 3-7)
+PJVersionInfo.als   : a-link keyword file (for Delphi 6 & 7 help)
+ReadMe.htm          : information sheet
+changelog32.txt     : change log
+Demo\PJSoft.ico     : icon used by both demo applications
+Demo\1\VIDemo.dpr   : project file for demo application
+Demo\1\VIDemo.res   : resource file containing demo app icon
+Demo\1\VIDemo.cfg   : config file for compiling demo app
+Demo\1\FmVIDemo.pas : demo main form unit
+Demo\1\FmVIDemo.dfm : demo main form file
+Demo\2\HelpEgs.dpr  : project file for help examples application
+Demo\2\HelpEgs.res  : resource file containing help example app icon
+Demo\2\HelpEgs.cfg  : config file for compiling demo app
+Demo\2\FmMain.pas   : help example main form unit
+Demo\2\FmMain.dfm   : help example main form file
+Demo\2\FmEg1.pas    : form unit for help example 1
+Demo\2\FmEg1.dfm    : form file for help example 1
+Demo\2\FmEg2.pas    : form unit for help example 2
+Demo\2\FmEg2.dfm    : form file for help example 2
+Demo\2\FmEg3.pas    : form unit for help example 3
+Demo\2\FmEg3.dfm    : form file for help example 3
+Demo\2\FmEg4.pas    : form unit for help example 4
+Demo\2\FmEg4.dfm    : form file for help example 4
+Demo\2\MultiVer.rc  : version info resource source file containing two translations
+Demo\2\MultiVer.res : version info resource binary file containing two translations
