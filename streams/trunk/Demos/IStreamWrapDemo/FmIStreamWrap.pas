@@ -1,19 +1,13 @@
-////////////////////////////////////////////////////////////////////////////////
-//                                                                            //
-// delphiDabbler Stream Library Demo Program:                                 //
-//   IStreamWrap.exe v1.0 of 30/09/2001                                       //
-//   Main form file: FmIStreamWrap.pas v1.0 of 30/09/2001                     //
-//                                                                            //
-// This program demonstrates how to use the classes that implement IStream    //
-// interfaces for wrapped streams that are provided in the PJIStreams unit    //
-//                                                                            //
-// Copyright © 2001-3 Peter Johnson, Llanarth, Wales, UK                      //
-//                                                                            //
-// Any comments to peter.johnson@openlink.org                                 //
-// Library updates available from http://www.delphidabbler.com/               //
-//                                                                            //
-////////////////////////////////////////////////////////////////////////////////
-
+{
+ * Main form for IStreamWrap Stream Library Demo Program.
+ *
+ * $Rev$
+ * $Date$
+ *
+ * This file is copyright (C) P D Johnson (www.delphidabbler.com), 2001-2009.
+ * It may be used without restriction. This code distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+}
 
 unit FmIStreamWrap;
 

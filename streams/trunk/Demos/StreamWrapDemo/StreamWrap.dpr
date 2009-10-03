@@ -1,20 +1,13 @@
-////////////////////////////////////////////////////////////////////////////////
-//                                                                            //
-// PJSoft Stream Library Demo Program:                                        //
-//   StreamWrap.exe v1.0 of 30/09/2001                                        //
-//   Project file: StreamWrap.dpr v1.0 of 30/09/2001                          //
-//                                                                            //
-// This program demonstrates how to derived a class from the TPJSteamWrapper  //
-// class. It provides a class that can read and write strings from and to a   //
-// stream.                                                                    //
-//                                                                            //
-// Copyright © 2001 Peter Johnson, Llanarth, Wales, UK                        //
-//                                                                            //
-// Any comments to peter.johnson@openlink.org                                 //
-// Library updates available from http://www.pjsoft.contactbox.co.uk/         //
-//                                                                            //
-////////////////////////////////////////////////////////////////////////////////
-
+{
+ * Project file for StreamWrap Stream Library Demo Program.
+ *
+ * $Rev$
+ * $Date$
+ *
+ * This file is copyright (C) P D Johnson (www.delphidabbler.com), 2001-2009.
+ * It may be used without restriction. This code distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+}
 
 program StreamWrap;
 
