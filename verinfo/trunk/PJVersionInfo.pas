@@ -1,110 +1,13 @@
-{ ##
-  @FILE                     PJVersionInfo.pas
-  @COMMENTS                 Version Information Component (32 bit) source code
-                            (development split from 16 bit version after v1.0).
-  @PROJECT_NAME             Version Information Component
-  @PROJECT_DESC             Component that reads version information from files.
-  @OTHER_NAMES              + Original unit name was VerInfo.pas
-                            + Changed to VInfo.pas at v2.1
-                            + Changed to PJVersionInfo.pas at v3.0
-  @AUTHOR                   Peter Johnson, LLANARTH, Ceredigion, Wales, UK
-  @EMAIL                    peter.johnson@openlink.org
-  @WEBSITE                  http://www.delphidabbler.com/
-  @COPYRIGHT                Copyright © Peter D Johnson, 1998-2003.
-  @LEGAL_NOTICE             This component is distributed under the Mozilla
-                            Public License - see below.
-  @CREDITS                  In producing this component some techniques were
-                            used which were learned from FVersion by PJ Veger,
-                            Best, The Netherlands (Feb/96).
-  @HISTORY(
-    @REVISION(
-      @VERSION              1.0
-      @DATE                 25/04/1998
-      @COMMENTS             Original version - 16 bit only.
-    )
-    @REVISION(
-      @VERSION              2.0
-      @DATE                 06/12/1998
-      @COMMENTS             Revised for use with 32 bit Windows. Not compatible
-                            with v1.
-    )
-    @REVISION(
-      @VERSION              2.0.1
-      @DATE                 09/04/1999
-      @COMMENTS             Changed installation palette from "Own" to "PJ
-                            Stuff".
-    )
-    @REVISION(
-      @VERSION              2.1
-      @DATE                 28/11/1999
-      @COMMENTS             + Changed unit name to VInfo from VerInfo to allow
-                              component to install under Delphi 3 & 4 (VerInfo
-                              clashes with an existing unit in these versions).
-                            + Removed superfluous conditional compilation
-                              directives.
-    )
-    @REVISION(
-      @VERSION              3.0
-      @DATE                 17/02/2002
-      @COMMENTS             Major update:
-                            + Added ability to access all "translations" stored
-                              in a file's version information, rather than just
-                              first one. This has been done so that code using
-                              earlier versions of this component should continue
-                              to work unchanged.
-                            + Added new property to expose fixed file
-                              information record.
-                            + Added new "string array" property to give access
-                              to string information by name: this property can
-                              access any custom string information if the name
-                              is known.
-                            + Added properties to return number of
-                              "translations" and to select index of
-                              "translation" to be used.
-                            + Added properites to return language and character
-                              set codes in addition to descriptive strings.
-                            + All string info, language and character set
-                              properties now return values from the currently
-                              selected translation (which defaults to the first
-                              translation maintaining backward compatibilty).
-                            + Empty file name string now accesses name of host
-                              application per command line rather than using
-                              Application.ExeName. This enables this code to
-                              work correctly even if user changes name of
-                              executable file.
-                            + CharSet property now returns '' for unknown value
-                              rather than 'Unknown'
-                            + Renamed unit to PJVersionInfo from VInfo.
-                            + Renamed TVersionNumber record to TPJVersionNumber
-                            + Replaced Tvs_FixedFileInfo record with use of
-                              Windows unit defined type TVSFixedFileInfo.
-                            + Changed component palette from PJ Stuff to PJSoft
-    )
-    @REVISION(
-      @VERSION              3.0.1
-      @DATE                 08/07/2003
-      @COMMENTS             Changed installation palette from "PJSoft" to
-                            "DelphiDabbler".
-    )
-    @REVISION(
-      @VERSION              3.1
-      @DATE                 07/09/2003
-      @COMMENTS             Fixed to be compatible with C++ Builder - direct
-                            access fields of TVSFixedFileInfo in property
-                            declarations was replaced by calls to an indexed
-                            property getter function.
-    )
-    @REVISION(
-      @VERSION              3.1.1
-      @DATE                 11/12/2005
-      @COMMENTS             Changed to Mozilla Public License. No functional
-                            changes.
-    )
-  )
-}
-
-
-{
+{ 
+ * PJVersionInfo.pas
+ *
+ * Version Information Component (32 bit). The component reads version
+ * information from files.
+ *
+ * $Rev$
+ * $Date$
+ *
+ *
  * ***** BEGIN LICENSE BLOCK *****
  * 
  * Version: MPL 1.1
@@ -122,7 +25,7 @@
  * The Initial Developer of the Original Code is Peter Johnson
  * (http://www.delphidabbler.com/).
  * 
- * Portions created by the Initial Developer are Copyright (C) 1998-2005 Peter
+ * Portions created by the Initial Developer are Copyright (C) 1998-2009 Peter
  * Johnson. All Rights Reserved.
  * 
  * Contributor(s):
