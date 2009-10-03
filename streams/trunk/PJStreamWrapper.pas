@@ -1,32 +1,40 @@
-{ ##
-  @PROJECT_NAME             PJ Stream Class Library
-  @PROJECT_DESC             Re-usable stream classes.
-  @FILE                     PJStreamWrapper.pas
-  @COMMENTS                 This unit defines the TPJStreamWrapper class. This
-                            is a base class for descendant classes that "wrap" a
-                            TStream class to provide some form of filter or
-                            additional functionality. The wrapped TStream is
-                            used to do physical i/o. TPJStreamWrapper simply
-                            replicates the facilities in the wrapped stream - it
-                            is for descendant classes to add functionality.
-  @OTHER_NAMES              UStreamWrapper.pas: renamed to PJStreamWrapper.pas
-                            at v1.1.
-  @UNIT_TESTS               DUnit tests for this unit are in
-                            TestPJStreamWrapper.pas.
-  @HISTORY(
-    @REVISION(
-      @VERSION              1.0
-      @DATE                 25/03/2000
-      @COMMENTS             Original version.
-    )
-    @REVISION(
-      @VERSION              1.1
-      @DATE                 29/09/2001
-      @COMMENTS             Unit and class renamed per library standards.
-                            + Renamed unit PJStreamWrapper from UStreamWrapper
-                            + Renamed class TPJStreamWrapper from TStreamWrapper
-    )
-  )
+{
+ * PJStreamWrapper.pas
+ *
+ * Defines the TPJStreamWrapper class. This is a base class for descendant
+ * classes that "wrap" a TStream class to provide some form of filter or
+ * additional functionality. The wrapped TStream is used to do physical i/o.
+ * TPJStreamWrapper simply replicates the facilities in the wrapped stream - it
+ * is for descendant classes to add functionality.
+ *
+ * $Rev$
+ * $Date$
+ *
+ *
+ * ***** BEGIN LICENSE BLOCK *****
+ *
+ * Version: MPL 1.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for
+ * the specific language governing rights and limitations under the License.
+ *
+ * The Original Code is PJStreamWrapper.pas.
+ *
+ * The Initial Developer of the Original Code is Peter Johnson
+ * (http://www.delphidabbler.com/).
+ *
+ * Portions created by the Initial Developer are Copyright (C) 2000-2009 Peter
+ * Johnson. All Rights Reserved.
+ *
+ * Contributor(s):
+ *   NONE
+ *
+ * ***** END LICENSE BLOCK *****
 }
 
 

@@ -1,32 +1,39 @@
-{ ##
-  @PROJECT_NAME             PJ Stream Class Library
-  @PROJECT_DESC             Re-usable stream classes.
-  @FILE                     PJResWriterStreams.pas
-  @COMMENTS                 This unit provides classes that can write data to
-                            resource files.
-  @DEPENDENCIES             Requires library class:
-                            + TPJStreamWrapper in PJStreamWrapper \
-  @OTHER_NAMES              UResWriterStreams.pas: renamed to
-                            PJResWriterStreams.pas at v1.1.
-  @UNIT_TESTS               NONE.
-  @HISTORY(
-    @REVISION(
-      @VERSION              1.0
-      @DATE                 26/03/2000
-      @COMMENTS             Original version.
-    )
-    @REVISION(
-      @VERSION              1.1
-      @DATE                 29/09/2001
-      @COMMENTS             Unit and classes renamed per library standards:
-                            + Renamed unit PJResWriterStreams from
-                              UResWriterStreams
-                            + Renamed classes by adding "PJ" after initial
-                              letter of class name\
-                            Also changed literal error message to be a resource
-                            string.
-    )
-  )
+{
+ * PJResWriterStreams.pas
+ *
+ * Classes that can write data to resource files.
+ *
+ * Deprecated. Do not use in new projects. Use the Resource File Unit instead.
+ * Available from http://www.delphidabbler.com/software/resfile.
+ *
+ * $Rev$
+ * $Date$
+ *
+ *
+ * ***** BEGIN LICENSE BLOCK *****
+ *
+ * Version: MPL 1.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for
+ * the specific language governing rights and limitations under the License.
+ *
+ * The Original Code is PJResWriterStreams.pas.
+ *
+ * The Initial Developer of the Original Code is Peter Johnson
+ * (http://www.delphidabbler.com/).
+ *
+ * Portions created by the Initial Developer are Copyright (C) 2000-2009 Peter
+ * Johnson. All Rights Reserved.
+ *
+ * Contributor(s):
+ *   NONE
+ *
+ * ***** END LICENSE BLOCK *****
 }
 
 
@@ -37,7 +44,7 @@ interface
 uses
   // Delphi
   SysUtils, Classes, Windows,
-  // PJ Class Library
+  // Stream Extension Classes unit
   PJStreamWrapper;
 
 type

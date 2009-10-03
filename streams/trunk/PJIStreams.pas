@@ -1,33 +1,36 @@
-{ ##
-  @PROJECT_NAME             PJ Stream Class Library
-  @PROJECT_DESC             Re-usable stream classes.
-  @FILE                     PJIStreams.pas
-  @COMMENTS                 This unit classes which provides various
-                            implementations of the IStream interface.
-  @UNIT_TESTS               DUnit tests for this unit are in TestPJIStreams.pas.
-  @HISTORY(
-    @REVISION(
-      @VERSION              1.0
-      @DATE                 29/09/2001
-      @COMMENTS             Original version.
-    )
-    @REVISION(
-      @VERSION              1.1
-      @DATE                 22/11/2003
-      @COMMENTS             + Fixed error that was reserving too much memory
-                              when getting stream names in Stat method.
-                            + Fixed access violation bug when calling
-                              TPJHandleIStreamWrapper.Stat method with a nil
-                              statstg parameter.
-                            + Added new virtual GetStreamNameAsString method to
-                              return appropriate stream for each class. This is
-                              used instead of overriding the GetStreamName
-                              method to save replicating all memory allocation
-                              code.
-                            + Now call task allocator via API functions rather
-                              than via a IMallov interface.
-    )
-  )
+{
+ * PJIStreams.pas
+ *
+ * Classes which provides various implementations of the IStream interface.
+ *
+ * $Rev$
+ * $Date$
+ *
+ *
+ * ***** BEGIN LICENSE BLOCK *****
+ *
+ * Version: MPL 1.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for
+ * the specific language governing rights and limitations under the License.
+ *
+ * The Original Code is PJIStreams.pas.
+ *
+ * The Initial Developer of the Original Code is Peter Johnson
+ * (http://www.delphidabbler.com/).
+ *
+ * Portions created by the Initial Developer are Copyright (C) 2001-2009 Peter
+ * Johnson. All Rights Reserved.
+ *
+ * Contributor(s):
+ *   NONE
+ *
+ * ***** END LICENSE BLOCK *****
 }
 
 
