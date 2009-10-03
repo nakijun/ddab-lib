@@ -2,14 +2,8 @@
 ;
 ; Help project file for System Information Unit.
 ;
-; v1.0 of 10 Nov 2001  - Original version.
-; v1.1 of 30 Jun 2003  - Updated copyright date to 2001-2003.
-;                        Changed reference to PJSoft to DelphiDabbler.
-; v1.2 of 13 Nov 2005  - Updated copyright date to 2001-2005.
-; v1.3 of 15 Oct 2006  - Updated copyright date to 2001-2006.
-; v1.4 of 15 Apr 2008  - Updated copyright date to 2001-2008.
-; v1.5 of 13 Apr 2009  - Updated copyright date to 2001-2009.
-;
+; $Rev$
+; $Date$
 ;
 ; ***** BEGIN LICENSE BLOCK *****
 ;
