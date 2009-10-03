@@ -1,27 +1,15 @@
-{ ##
-  @FILE                     FmMain.pas
-  @COMMENTS                 Main form unit for application that implements the
-                            examples provided in the TPJVersionInfo component
-                            help file. This form provides access to dialog boxes
-                            that implement the applications.
-  @PROJECT_NAME             Version Information Component
-  @PROJECT_DESC             Component that reads version information from files.
-  @DEPENDENCIES             None.
-  @HISTORY(
-    @REVISION(
-      @VERSION              1.0
-      @DATE                 17/02/2002
-      @COMMENTS             Original version.
-    )
-    @REVISION(
-      @VERSION              1.1
-      @DATE                 11/12/2005
-      @COMMENTS             + Added code to close down help window.
-                            + Added brief description to eg buttons
-    )
-  )
+{
+ * FmMain.pas
+ *
+ * Main form for Version Information Component HelpEgs demo program.
+ *
+ * $Rev$
+ * $Date$
+ *
+ * This file is copyright (C) P D Johnson (www.delphidabbler.com), 2002-2009.
+ * It may be used without restriction. This code distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
 }
-
 
 unit FmMain;
 

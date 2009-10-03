@@ -1,26 +1,15 @@
-{ ##
-  @FILE                     FmVIDemo.pas
-  @COMMENTS                 Form unit for TPJVersionInfo component demo
-                            application.
-  @PROJECT_NAME             Version Information Component
-  @PROJECT_DESC             Component that reads version information from files.
-  @DEPENDENCIES             Requires component:
-                            + TPJVersionInfo v3.0
-  @HISTORY(
-    @REVISION(
-      @VERSION              1.0
-      @DATE                 17/02/2002
-      @COMMENTS             Original version.
-    )
-    @REVISION(
-      @VERSION              1.1
-      @DATE                 10/12/2005
-      @COMMENTS             Added switch to enable writeable consts in
-      						lvMouseMove method
-    )
-  )
+{
+ * FmVIDemo.pas
+ *
+ * Main form for Version Information Component VIDemo demo program.
+ *
+ * $Rev$
+ * $Date$
+ *
+ * This file is copyright (C) P D Johnson (www.delphidabbler.com), 2002-2009.
+ * It may be used without restriction. This code distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
 }
-
 
 unit FmVIDemo;
 

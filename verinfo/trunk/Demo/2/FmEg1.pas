@@ -1,26 +1,16 @@
-{ ##
-  @FILE                     FmEg1.pas
-  @COMMENTS                 Form unit that implements example 1 from the
-                            TPJVersionInfo component help file.
-  @PROJECT_NAME             Version Information Component
-  @PROJECT_DESC             Component that reads version information from files.
-  @DEPENDENCIES             Requires component:
-                            + TPJVersionInfo v3.1 or later
-  @HISTORY(
-    @REVISION(
-      @VERSION              1.0
-      @DATE                 17/02/2002
-      @COMMENTS             Original version.
-    )
-    @REVISION(
-      @VERSION              1.1
-      @DATE                 11/12/2005
-      @COMMENTS             + Added button that displays example's help topic.
-                            + Added brief description of e.g. to form's caption.
-    )
-  )
+{
+ * FmEg1.pas
+ *
+ * Form unit that implements example 1 for the Version Information Component
+ * HelpEgs demo program.
+ *
+ * $Rev$
+ * $Date$
+ *
+ * This file is copyright (C) P D Johnson (www.delphidabbler.com), 2002-2009.
+ * It may be used without restriction. This code distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
 }
-
 
 unit FmEg1;
 

@@ -1,20 +1,16 @@
-/* ##
-  @FILE                     MultiVer.rc
-  @COMMENTS                 Version information resource file containing more
-                            than one translation for use in help example demo
-                            program.
-  @PROJECT_NAME             Version Information Component
-  @PROJECT_DESC             Component that reads version information from files.
-  @DEPENDENCIES             None.
-  @HISTORY(
-    @REVISION(
-      @VERSION              1.0
-      @DATE                 17/02/2002
-      @COMMENTS             Original version.
-    )
-  )
-*/
-
+/*
+ * MultiVer.rc
+ *
+ * Resource file containing version information with more than one translation
+ * for use in the the Version Information Component HelpEgs demo program.
+ *
+ * $Rev$
+ * $Date$
+ *
+ * This file is copyright (C) P D Johnson (www.delphidabbler.com), 2002-2009.
+ * It may be used without restriction. This code distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ */
 
 #define VERINFO 1
 
