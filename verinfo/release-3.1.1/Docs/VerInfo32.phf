@@ -1,0 +1,273 @@
+@PROJECT_NAME           Version Information Component (32 bit)
+@PROJECT_DESC           Component that reads version information from files (32
+                        bit).
+@ROOT                   ..\
+@AUTHOR                 Peter Johnson, LLANARTH, Ceredigion, Wales, UK
+@EMAIL                  peter.johnson@openlink.org
+@WEBSITE                http://www.pjsoft.contactbox.co.uk/
+@COPYRIGHT              © Peter D Johnson, 1998-2002.
+@LEGAL_NOTICE           This components and source code is placed in the public
+                        domain. It may be freely copied and circulated on a not
+                        for profit basis providing that the code is unmodified
+                        and this notice and information about the author and his
+                        copyright remains attached to the source code.
+@NOTES                  After version 1 development of this component forked.
+                        Development of the 16 bit component continued with
+                        v1.0.1 while a 32 bit version (v2 and later) was also
+                        developed (v2). Development of the 16 bit version is
+                        covered in a different history file.
+@HISTORY(
+  @REVISION(
+    @VERSION            1.0
+    @DATE               26/04/1998
+    @COMMENTS           Original verion (16 bit)
+    @COMPILERS          Microsoft HC31 help compiler.
+    @FILES(
+      @NEW(
+        @FILE           VerInfo.pas
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           VerInfo.dcr
+        @DATE           24/04/1998
+        @COMMENTS       Resource file for 16 bit component glyph.
+      )
+      @NEW(
+        @FILE           VerInfo.hpj
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           VerInfo.rtf
+        @DATE           26/04/1998
+        @COMMENTS       Help source file.
+      )
+      @NEW(
+        @FILE           VerInfo.kwf
+        @DATE           26/04/1998
+        @COMMENTS       Keyword file for Delphi help.
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            2.0
+    @DATE               06/12/1998
+    @COMMENTS           Revised component for use with 32 bit Windows. The
+                        component is not backward compatible with version 1.
+                        Development of 32 bit version forked from 16 bit at this
+                        time.
+    @COMPILERS          Microsoft HC31 help compiler.
+    @FILES(
+      @UPDATED(
+        @FILE           VerInfo.pas
+        @VERSION        2.0
+      )
+      @UPDATED(
+        @FILE           VerInfo.dcr
+        @DATE           06/12/1998
+        @COMMENTS       Resource file for glyph recompiled as a 32 bit resource.
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            2.0.1
+    @DATE               09/04/1999
+    @COMMENTS           Changed installation palette from "Own" to "PJ Stuff".
+    @COMPILERS          Microsoft HC31 help compiler.
+    @FILES(
+      @UPDATED(
+        @FILE           VerInfo.pas
+        @VERSION        2.0.1
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            2.1
+    @DATE               28/11/1999
+    @COMMENTS           Tidied code and changed component unit name from VerInfo
+                        to VInfo to avoid clash with Delphi 4.
+    @COMPILERS          Microsoft HC31 help compiler.
+    @FILES(
+      @UPDATED(
+        @FILE           VInfo.pas
+        @VERSION        2.1
+        @RENAMED_FROM   verinfo.pas
+      )
+      @UPDATED(
+        @FILE           VInfo.dcr
+        @DATE           06/12/1998
+        @COMMENTS       Component glyph resource simply renamed, not updated.
+        @RENAMED_FROM   VerInfo.dcr
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            3.0
+    @DATE               17/02/2002
+    @COMMENTS           Major update:
+                        + Added multiple language support - the component can
+                          now acess variable information for any of the
+                          languages included in a version information resource.
+                        + Added new properties to expose fixed file information
+                          record, string info by name and language / character
+                          codes.
+                        + Renamed unit to PJVersionInfo from VInfo.
+                        + Changed component palette from PJ Stuff to PJSoft.
+                        + Created new help file that integrates into Delphi 3
+                          and later IDE.
+                        + Added demo programs to project.
+    @COMPILERS          + Help Topic Author 1.2.2
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @REMOVED          VerInfo.kwf
+      @REMOVED          VerInfo.rtf
+      @UPDATED(
+        @FILE           PJVersionInfo.pas
+        @VERSION        3.0
+        @RENAMED_FROM   VInfo.pas
+      )
+      @UPDATED(
+        @FILE           PJVersionInfo.dcr
+        @DATE           06/12/1998
+        @COMMENTS       Component glyph resource simply renamed, not updated.
+        @RENAMED_FROM   VInfo.dcr
+      )
+      @UPDATED(
+        @FILE           Help\PJVersionInfo.hpj
+        @VERSION        2.0
+        @DATE           17/02/2002
+        @RENAMED_FROM   VerInfo.hpj
+      )
+      @NEW(
+        @FILE           Help\PJVersionInfo.hap
+        @DATE           17/02/2002
+        @COMMENTS       Help topic file - replaces the VerInfo.rtf file as
+                        source for the help file.
+      )
+      @NEW(
+        @FILE           Demo\1\VIDemo.dpr
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demo\1\FmVIDemo.pas
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demo\2\HelpEgs.dpr
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demo\2\FmMain.pas
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demo\2\FmEg1.pas
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demo\2\FmEg2.pas
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demo\2\FmEg3.pas
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demo\2\FmEg4.pas
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demo\2\MultiVer.rc
+        @VERSION        1.0
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            3.0.1
+    @DATE               08/07/2003
+    @COMMENTS           + Changed install palette from PJSoft to DelphiDabbler.
+                        + Updated documentation.
+                        + Updated help file about box title and copyright
+                          message to refer to DelphiDabbler rather than PJSoft.
+    @COMPILERS          + Help Topic Author 1.2.2
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJVersionInfo.pas
+        @VERSION        3.0.1
+      )
+      @UPDATED(
+        @FILE           Help\PJVersionInfo.hpj
+        @VERSION        2.1
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            3.1
+    @DATE               07/09/2003
+    @COMMENTS           Fixed to be compatible with C++ Builder.
+    @COMPILERS          + Help Topic Author 1.2.2
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJVersionInfo.pas
+        @VERSION        3.1
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            3.1.1
+    @DATE               11/12/2005
+    @COMMENTS           + Fixed minor bug in Demo 1 (enabled writeable consts)
+                        + Revised Demo 2 with more informative captions and
+                          access to related component help file topics.
+                        + Updated help file to add access to (revised) example
+                          topics from main component page.
+    @COMPILERS          + Help Topic Author 1.16
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           Demo\1\FMVIDemo.pas
+        @VERSION        1.1
+      )
+      @UPDATED(
+        @FILE           Demo\2\FmEg1.pas
+        @VERSION        1.1
+      )
+      @UPDATED(
+        @FILE           Demo\2\FmEg2.pas
+        @VERSION        1.1
+      )
+      @UPDATED(
+        @FILE           Demo\2\FmEg3.pas
+        @VERSION        1.1
+      )
+      @UPDATED(
+        @FILE           Demo\2\FmEg4.pas
+        @VERSION        1.1
+      )
+      @UPDATED(
+        @FILE           Demo\2\FmMain.pas
+        @VERSION        1.1
+      )
+      @UPDATED(
+        @FILE           Demo\2\HelpEgs.dpr
+        @VERSION        1.1
+      )
+      @NEW(
+        @FILE           Help\PJVersionInfo.als
+        @DATE           10/12/2005
+        @COMMENTS       New a-link keyword file for merging with Delphi 6/7.
+      )
+      @UPDATED(
+        @FILE           Help\PJVersionInfo.hap
+        @DATE           10/12/2005
+        @COMMENTS       Updated example help topics and placed link to them on
+                        main component page.
+      )
+      @UPDATED(
+        @FILE           Help\PJVersionInfo.hpj
+        @VERSION        2.2
+      )
+    )
+  )
+)

@@ -1,0 +1,311 @@
+@PROJECT_NAME           System information unit
+@PROJECT_DESC           A component and routines that provide information about
+                        the user's computer and operating system.
+@ROOT                   ..\
+@AUTHOR                 Peter Johnson, LLANARTH, Ceredigion, Wales, UK
+@EMAIL                  peter.johnson@openlink.org
+@WEBSITE                http://www.delphidabbler.com/
+@COPYRIGHT              © Peter D Johnson, 2001-2005.
+@LEGAL_NOTICE           This unit is released under the Mozilla Public License
+                        v1.1. See http://www.mozilla.org/MPL/ for details.
+@HISTORY(
+  @REVISION(
+    @VERSION            1.0
+    @DATE               10/11/2001
+    @COMMENTS           Original version
+    @COMPILERS          + Help Topic Author 1.12.1
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @NEW(
+        @FILE           PJSysInfo.pas
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           PJSysInfo.dcr
+        @VERSION        1.0
+        @COMMENTS       Resource file containing resource palette glyph for
+                        component.
+      )
+      @NEW(
+        @FILE           Help\PJSysInfo.hap
+        @DATE           10/11/2001
+        @COMMENTS       Help topic author file
+      )
+      @NEW(
+        @FILE           Help\PJSysInfo.hpj
+        @VERSION        1.0
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            1.1
+    @DATE               25/11/2001
+    @COMMENTS           Added code to retrieve program files and common files
+                        folders.
+    @COMPILERS          + Help Topic Author 1.12.1
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJSysInfo.pas
+        @VERSION        1.1
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.hap
+        @DATE           25/11/2001
+        @COMMENTS       Added topics for new properties and functions.
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.hpj
+        @VERSION        1.1
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            1.2
+    @DATE               30/06/2003
+    @COMMENTS           + Updated palette name to "DelphiDabbler" from "PJ
+                          Stuff".
+                        + Added support for Windows 2003 server to OS detection
+                          functions.
+                        + Removed requirement for Registry unit by accessing
+                          registry via + Windows API where required.
+                        + Made TOSVersionInfoEx record definition into packed
+                          record.
+                        + GetOSProduct, GetOSProductType & GetOSServicePack
+                          updated according to latest example on MSDN.
+                        + Used resource strings for exception messages.
+                        + Updated help file.
+                        + Added demo application.
+    @COMPILERS          + Help Topic Author 1.12.4
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJSysInfo.pas
+        @VERSION        1.2
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.hap
+        @DATE           30/06/2003
+        @COMMENTS       + Updated topics re new supported operating system.
+                        + Fixed errors (keyword errors and malformed bullets. )
+      )
+      @NEW(
+        @FILE           Demo\SysInfoDemo.dpr
+        @VERSION        1.0
+      )
+      @NEW(
+        @FILE           Demo\FmDemo.pas
+        @VERSION        1.0
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            2.0
+    @DATE               13/11/2005
+    @COMMENTS           Major update:
+                        + Added new static classes: TPJComputerInfo (provides
+                          information about the host computer), TPJSystemFolders
+                          (gets paths to system folders) and TPJOSInfo (provides
+                          operating system information). Together these classes
+                          duplicate and extend the features of the TPJSysInfo
+                          component.
+                        + Added new features: gettting Windows product ID;
+                          detection of Windows Vista, XP Media Edition and XP
+                          Tablet Edition; detection of WOW64 sub-system; further
+                          operating system detection features.
+                        + Added new global Win32* variables to provide extended
+                          operating system version information in style of
+                          variables from SysUtils unit.
+                        + Re-implemented TPJSysInfo and SIGet* functions in
+                          terms of new static classes.
+                        + Flagged TPJSysInfo and the SIGet* functions as
+                          deprecated - it is now preferred to use above new
+                          static classes.
+                        + Made TOSVersionInfoEx type and VER_NT_* and
+                          VER_SUITE_* constants public.
+                        + Updated help file.
+                        + Added Help A-Keywords file for integration into Delphi
+                          6/7 help systems.
+                        + Updated demo program re new features.
+    @COMPILERS          + Help Topic Author 1.16
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJSysInfo.pas
+        @VERSION        2.0
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.hpj
+        @VERSION        1.2
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.hap
+        @DATE           13/11/2005
+        @COMMENTS       + Added topics for new static classes and methods.
+                        + Added topics for new Wins32* variables.
+                        + Flagged TPJSysInfo and SIGet* functions as deprecated.
+      )
+      @NEW(
+        @FILE           Help\PJSysInfo.als
+        @DATE           13/11/2005
+        @COMMENTS       Delphi IDE integration A-keyword list.
+      )
+      @UPDATED(
+        @FILE           Demo\FmDemo.pas
+        @VERSION        2.0
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            2.0.1
+    @DATE               07/01/2006
+    @COMMENTS           Fixed bug in TPJOSInfo.ProductName.
+    @COMPILERS          + Help Topic Author 1.16
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJSysInfo.pas
+        @VERSION        2.0.1
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            2.1
+    @DATE               15/10/2006
+    @COMMENTS           Added new TPJComputerInfo.MACAddress method.
+    @COMPILERS          + Help Topic Author 1.16
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJSysInfo.pas
+        @VERSION        2.1
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.hpj
+        @VERSION        1.3
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.hap
+        @DATE           15/10/2006
+        @COMMENTS       Added topic for new TPJComputerInfo.MACAddress method.
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.als
+        @DATE           15/10/2006
+        @COMMENTS       Updated A-keyword list re new topic.
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            3.0
+    @DATE               15/04/2008
+    @COMPILERS          + Help Topic Author 1.17
+                        + Microsoft Help Workshop 4
+    @COMMENTS           + Added support for GetProductInfo API (Vista)
+                        + Added support for Windows 2008 server and 2003 server
+                          R2.
+                        + Rewrote code that gets OS edition.
+                        + Added to VER_SUITE_ flags
+                        + Added new PRODUCT_ and PROCESSOR_ flags
+                        + Added new SM_STARTER and SM_SERVER2 consts.
+                        + Added Unicode version of OSVERSIONINFOEX and extended
+                          number of types refering to Ansi and Unicode versions
+                          of these structures.
+                        + Added new methods to TPJOSInfo class
+                        + Added new processor related methods to
+                          TPJComputerInfo.
+                        + Added new Win32XXX global variables relating to
+                          availability and value of product information.
+                        + Now omit deprecated TPJSysInfo and SIGetXXX functions
+                          from compilation by default. Can now only be compiled
+                          if a symbol is defined.
+                        + Updated help file re revised static class and removed
+                          topics for deprecated component and functions.
+                        + Revised demo program by adding output for new methods
+                          and removed demo of deprecated code.
+    @FILES(
+      @UPDATED(
+        @FILE           PJSysInfo.pas
+        @VERSION        3.0
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.als
+        @DATE           15/04/2008
+        @COMMENTS       Updated A-keywords re changes in .hap file.
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.hap
+        @DATE           14/04/2008
+        @COMMENTS       + Removed topics for deprecated functions and component.
+                        + Added topics for new methods.
+                        + Added copyright notice
+                        + Added information about conditional compilation of
+                          deprecated code.
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.hpj
+        @VERSION        1.4
+      )
+      @UPDATED(
+        @FILE           Demo\SysInfoDemo.dpr
+        @VERSION        1.1
+      )
+      @UPDATED(
+        @FILE           Demo\FmDemo.pas
+        @VERSION        2.1
+      )
+    )
+  )
+  @REVISION(
+    @VERSION            3.1
+    @DATE               13/04/2009
+    @COMMENTS           + Updated help file re revised static classes.
+                        + Revised demo program by adding output for new methods.
+                        + Added further PROCESSOR_ARCHITECTURE_*, PROCESSOR_*
+                          and PRODUCT_* constants.
+                        + Made default OS data structures use unicode versions
+                          when UNICODE is defined in an attempt to make the
+                          structures compatible with Delphi 2009.
+                        + Changed to use GetNativeSystemInfo API function to get
+                          processor architecture if possible.
+                        + Modified TPJOSInfo to detect Windows 7 and Windows
+                          2008 Server R2. Also changed a few OS and product
+                          descriptions.
+                        + Modified TPJOSInfo.Edition to add 64bit qualification
+                          to OS edition information for OSs running on 64 bit
+                          systems and using GetProductInfo API.
+                        + Added BootMode and IsNetworkPresent methods to
+                          TPJCumputerInfo.
+                        + Added TPJSystemFolders.SystemWow64 method.
+                        + Product name of unknown later Windows version now
+                          contains major and minor version numbers.
+    @COMPILERS          + Help Topic Author 1.17
+                        + Microsoft Help Workshop 4
+    @FILES(
+      @UPDATED(
+        @FILE           PJSysInfo.pas
+        @VERSION        3.1
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.als
+        @DATE           13/04/2009
+        @COMMENTS       Updated A-keywords re new topics added to help file.
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.hap
+        @DATE           13/04/2009
+        @COMMENTS       + Added topics for new methods.
+                        + Updated enumerated types with new values.
+                        + Corrected some typos.
+      )
+      @UPDATED(
+        @FILE           Help\PJSysInfo.hpj
+        @VERSION        1.5
+      )
+      @UPDATED(
+        @FILE           Demo\FmDemo.pas
+        @VERSION        2.2
+      )
+    )
+  )
+)
