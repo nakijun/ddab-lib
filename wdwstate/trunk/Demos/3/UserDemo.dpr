@@ -1,22 +1,15 @@
-{ ##
-  @PROJECT_NAME             UserDemo
-  @PROJECT_DESC             User demo for Window State Components:
-                            demonstrates use of TPJUserWdwState component.
-  @FILE                     UserDemo.dpr
-  @COMMENTS                 Demo's project file.
-  @LICENSE                  This demo application is freeware and subject to no
-                            restrictions. No warranty is provided either express
-                            or implied. Use entirely at your own risk.
-  @COPYRIGHT                Copyright (c) 2006, Peter D Johnson.
-  @HISTORY(
-    @REVISION(
-      @VERSION              1.0
-      @DATE                 15/10/2006
-      @COMMENTS             Original version.
-    )
-  )
+{
+ * UserDemo.dpr
+ *
+ * Project file for Version Information Component UserDemo demo program.
+ *
+ * $Rev$
+ * $Date$
+ *
+ * This file is copyright (C) P D Johnson (www.delphidabbler.com), 2006-2009.
+ * It may be used without restriction. This code distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
 }
-
 
 program UserDemo;
 

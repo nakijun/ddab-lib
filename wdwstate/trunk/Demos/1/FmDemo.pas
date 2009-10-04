@@ -1,37 +1,15 @@
-{ ##
-  @PROJECT_NAME             StandardDemo
-  @PROJECT_DESC             Standard demo for Window State Components:
-                            demonstrates design time use of TPJRegWdwState.
-  @FILE                     FmDemo.pas
-  @COMMENTS                 Demo's main form.
-  @DEPENDENCIES             Requires TPJRegWdwState
-  @LICENSE                  This demo application is freeware and subject to no
-                            restrictions. No warranty is provided either express
-                            or implied. Use entirely at your own risk.
-  @COPYRIGHT                Copyright (c) 2005-2007, Peter D Johnson.
-  @HISTORY(
-    @REVISION(
-      @VERSION              1.0
-      @DATE                 03/09/2005
-      @COMMENTS             Original version.
-    )
-    @REVISION(
-      @VERSION              1.1
-      @DATE                 16/12/2005
-      @COMMENTS             Removed properties from form that were not supported
-                            in earlier Delphis.
-    )
-    @REVISION(
-      @VERSION              1.2
-      @DATE                 28/01/2007
-      @COMMENTS             Added additional memo, splitter and event handlers
-                            to demonstrate new OnGettingRegData and
-                            OnPuttingRegData event handlers of TPJRegWdwState
-                            added in v5.1.
-    )
-  )
+{
+ * FmDemo.pas
+ *
+ * Main form for Version Information Component StandardDemo demo program.
+ *
+ * $Rev$
+ * $Date$
+ *
+ * This file is copyright (C) P D Johnson (www.delphidabbler.com), 2005-2009.
+ * It may be used without restriction. This code distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
 }
-
 
 unit FmDemo;
 

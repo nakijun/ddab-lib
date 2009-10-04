@@ -1,17 +1,15 @@
 {
-  Demo of using TPJWdwState with MDI applications.
-
-  MDIDemo.dpr - Project file.
-
-  v1.0 of 27 Sep 2007
-
-  This demo application is freeware and subject to no restrictions. No warranty
-  is provided either express or implied. Use entirely at your own risk.
-
-  The application was modified by Peter Johnson from an test application
-  provided by Craig Symons.
+ * MDIDemo.pas
+ *
+ * Project file for Version Information Component MDIChild demo program.
+ *
+ * $Rev$
+ * $Date$
+ *
+ * This file is copyright (C) P D Johnson (www.delphidabbler.com), 2007-2009.
+ * It may be used without restriction. This code distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
 }
-
 
 program MDIDemo;
 
