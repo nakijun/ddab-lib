@@ -1,0 +1,54 @@
+; ------------------------------------------------------------------------------
+; Change Log for Message Dialog Components
+; $Rev$
+; $Date$
+; ------------------------------------------------------------------------------
+
+Release v2.3 of 28 August 2010
++ Added new DlgType property to TPJVCLMsgDlg and TPJWinMsgDlg that allows button group and dialog box type to be specified using same flags that are passed to Windows MessageBox API function. (Issue #9).
++ Added new mkUnknown value to TPJMsgDlgKind to handle dialog type error conditions in DlgType property.
++ Added new ButtonGroup value that displays "Cancel", "Try Again" and "Continue" buttons when using TPJWinMsgDlg and Windows 2000 or later.
++ Added new option to TPJVCLMsgDlg that ignores help buttons when matching Buttons property to ButtonGroup property.
++ Modified demo program to work correctly with new mdoGroupIgnoresHelp Options value in TPJVCLMsgDlg.
++ Updated help file re changes and regenerated a-link keywords file.
+
+Release v2.2.1 of 17 August 2010
++ Fixed problems that were preventing compilation with Delphi 2010.
++ Ensured Unicode supported.
++ Switched off unsafe warnings for Delphi 7 and later.
++ Updated documentation.
+
+Release v2.2 of 31 March 2006
++ Added new OnShow and OnHide events to TPJVCLMsgDlg that expose dialog box's form to permit customisation.
++ Added new TPJVCLMsgDlgFormEvent type for TPJVCLMsgDlg's OnShow and OnHide events.
++ Added new OnHelp event to TPJVCLMsgDlg and TPJWinMsgDlg.
++ Enabled TPJVCLMsgDlg to trigger help when F1 pressed.
++ Updated help file re new TPJVCLMdgDlg features and added example of customising dialog box.
++ Updated demo program to show use of new OnHelp event and new TPJVCLMsgDlg for customization.
+
+Release v2.1 of 28 December 2005
++ Removed separate design unit and multi-line property editor. The separate extended string property editor can now be used instead.
++ Fixed bug in later Delphis handling help button click in TPJVCLMsgDlg.
++ Removal of property editor means that the components will install in Delphi 2005 and later.
++ Updated help file re removal of property editor.
++ Added new a-link keyword file for use with Delphi 6/7.
++ Fixed problem displaying help in demo program in later versions of Delphi.
++ Changed to Mozilla public license.
+
+Release v2.0 of 05 October 2003
++ Added new base classes for all components.
++ Modified TPJMessageDialog to descend from common base class with new TPJWinMsgDlg.
++ Fixed the following bugs in TPJMessageDialog:
+  - Setting the IconKind property to miUser and leaving the IconResource property empty now displays MAINICON rather than nothing.
+  - Failure to to display user icons under Win NT fixed by referencing resources in Unicode when NT used.
+  - MakeSound property now works for all values of IconKind rather than just miUser.
++ Added new TPJWinMsgDlg component that also wraps the Windows MessageBoxIndirect call. This new component is compatible with, and has properties that are a subset of, those of TPJVCLMsgDlg.
++ Added new TPJVCLMsgDlg component that wraps the Delphi VCL CreateMessageDialog function call that is used to implement the MessageDlgXXXX Delphi functions. This component permits finer control over buttons and positioning than is avaiable from the MessageBoxIndirect API call.
++ Added new design time unit for new property editor and component regsitration.
++ Added new property editor to permit entry of multi-line text for dialog boxes.
++ Moved component registration to new design time unit.
++ Complete rewrite of help file adding information about new components and property editor.
++ Added demo project.
+
+Release v1.0 of 06 April 2001
++ Original version with help file and HTML documentation.
