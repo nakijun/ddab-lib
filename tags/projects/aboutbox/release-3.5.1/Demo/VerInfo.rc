@@ -1,0 +1,36 @@
+/*
+ * Version information resource for About Box Component demo program.
+ *
+ * $Rev$
+ * $Date$
+ *
+ * This file is copyright (C) P D Johnson (www.delphidabbler.com), 2005-2009.
+ * It may be used without restriction. This code distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied.
+ */
+
+#define VERINFO 1
+
+VERINFO VERSIONINFO
+FILEVERSION 1, 2, 0, 3
+PRODUCTVERSION 1, 2, 0, 0
+FILEFLAGSMASK 0x00
+FILEOS VOS__WINDOWS32
+FILETYPE VFT_APP
+{
+ BLOCK "StringFileInfo"
+ {
+  BLOCK "080904E4"
+  {
+   VALUE "Comments", "This demo shows how to use the TPJAboutBox component. It is released under the Mozilla Public License.\000"
+   VALUE "CompanyName", "DelphiDabbler.com\000"
+   VALUE "LegalCopyright", "This demo is copyright (c) PD Johnson, 2005-2009.\000"
+   VALUE "ProductName", "About Box Dialog Demo by DelphiDabbler\000"
+   VALUE "ProductVersion", "v1.2.0.0\000"
+  }
+ }
+ BLOCK "VarFileInfo"
+ {
+  VALUE "Translation", 0x0809, 1252
+ }
+}
