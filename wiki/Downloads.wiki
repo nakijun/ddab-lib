@@ -4,9 +4,9 @@ $Rev$
 $Date$
 </wiki:comment>
 
-=Downloads=
+=Downloads Moved=
 
-Following Google's decision to discontinue the download service in January 2014, all the download files from this project have now been moved to _!SourceForge_.
+All the download files from this project have now been moved to _!SourceForge_. Given that Google has announced that _!GoogleCode_ is to close, please amend any bookmarks ASAP.
 
 Downloads can now be accessed via the _!SourceForge_ [https://sourceforge.net/projects/ddablib/files/ File Manager].
 
