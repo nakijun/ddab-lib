@@ -1,0 +1,7 @@
+#summary Place-holder page indicating that issues have been moved to SourceForge.
+
+= Issues Moved =
+
+Following Google's announcement that !GoogleCode is to close, the !DelphiDabbler code library issue tracker has now been moved to [https://sourceforge.net/p/ddablib/tickets/ SourceForge's ticket system]. 
+
+**Please do not open new tickets here - use the !SourceForge ticket system instead**.
